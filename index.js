@@ -99,7 +99,7 @@ async function startMoxieBotInc() {
         if (!MoxieBotInc.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
         if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
         m = smsg(MoxieBotInc, mek, store)
-        require("./Moxie-Bot")(MoxieBotInc, m, chatUpdate, store)
+        require("./Moxie-Bot.js")(MoxieBotInc, m, chatUpdate, store)
         } catch (e) {
             console.log(e)
         }
