@@ -2,7 +2,7 @@
 
 <h1 align="center">**MOXIE USER BOT**<br></h1>
 <p align="center">
-<img src="https://i.ibb.co/K0RtK0Z/IMG-20221021-WA0089.jpg" alt="animated" width="540" height="280" />
+<img src="https://telegra.ph/file/3c0449c3ec4323743ba68.jpg" alt="animated" width="540" height="280" />
 </p>
 
 <p align="center">
@@ -26,7 +26,7 @@ Cheems Bot Multi Device is a automated whatsapp bot developed by <a href="https:
 - FORK THE REPOSITORY [Here](https://github.com/Kaveeshasithum/DARKNERO--V7/fork)
 
 ## `Scan QR Code For Session`
-[![Cheems Bot](https://repl.it/badge/github/quiec/whatsasena)](https://replit.com/@nimaofficial/DARK-NERO-QR?v=1)
+[![Cheems Bot](https://repl.it/badge/github/quiec/whatsasena)]()
 
  ` BUILDPACKS`
 
