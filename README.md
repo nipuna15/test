@@ -1,6 +1,6 @@
 
 
-<h1 align="center">**MOXIE USER BOT<br></h1>
+<h1 align="center">**MOXIE USER BOT**<br></h1>
 <p align="center">
 <img src="https://i.ibb.co/K0RtK0Z/IMG-20221021-WA0089.jpg" alt="animated" width="540" height="280" />
 </p>
