@@ -2,7 +2,7 @@
 
 <h1 align="center">**MOXIE USER BOT**<br></h1>
 <p align="center">
-<img src="https://telegra.ph/file/3c0449c3ec4323743ba68.jpg" alt="animated" width="540" height="280" />
+<img src="https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg" alt="animated" width="540" height="280" />
 </p>
 
 <p align="center">
