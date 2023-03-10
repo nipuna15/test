@@ -2,7 +2,7 @@
   "name": "Moxie-MD-Bot",
   "description": "whatsapp md bot build with nodejs",
   "repository": "https://github.com/nipuna15/Moxie-MD-Bot",
-  "logo": "https://pbs.twimg.com/media/FO7fojOakAAyYgt?format=jpg&name=900x900",
+  "logo": "https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg",
   "keywords": ["nodejs", "bot", "whatsapp bot", "whatsapp automation", "multi device"],
   "buildpacks": [
     {
