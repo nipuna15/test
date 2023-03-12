@@ -37,9 +37,9 @@ const ini_mark = `0@s.whatsapp.net`
 const ownernya = ownernomer + '@s.whatsapp.net'
 
 //TIME
-const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
-const time2 = moment().tz('Asia/Kolkata').format('HH:mm:ss')  
+const xtime = moment.tz('Colombo').format('HH:mm:ss')
+const xdate = moment.tz('Asia/Colombo').format('DD/MM/YYYY')
+const time2 = moment().tz('Asia/Colombo').format('HH:mm:ss')  
  if(time2 < "23:59:00"){
 var ucapanWaktu = `Good Night 🌌`
  }
@@ -1849,7 +1849,7 @@ case 'tomp4': case 'tovideo': {
                 }
                 break
 case 'play': case 'yt': { 
-        XeonBotInc.sendMessage(from, { react: { text: `🔎`, key: m.key }})    
+        MoxieBotInc.sendMessage(from, { react: { text: `🔎`, key: m.key }})    
             if (!text) return reply(`Example : ${prefix + command} lelena`)
 let yts = require("yt-search")
 let search = await yts(text)
@@ -1879,11 +1879,11 @@ footer: `📶 Moxie_Bot 📶 `,
 buttons: buttons,
 headerType: 4,
 }
-XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+MoxieBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
 break
 case 'song': { 
-XeonBotInc.sendMessage(from, { react: { text: `🎧`, key: m.key }})    
+MoxieBotInc.sendMessage(from, { react: { text: `🎧`, key: m.key }})    
     if (!text) return reply(`Example : ${prefix + command} lelena`)
 let yts = require("yt-search")
 let search = await yts(text)
@@ -1913,7 +1913,7 @@ footer: `📶 Moxie_Bot 📶 `,
 buttons: buttons,
 headerType: 4,
 }
-XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+MoxieBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
 break
 case 'ytdl': {
@@ -2008,7 +2008,7 @@ listMessage :{
 listType: 1
 }
 }), {})
-XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+MoxieBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 }
 break
 	case 'ytdoc': {
@@ -2016,13 +2016,13 @@ break
                 if (!isUrl(args[0]) && !args[0].includes('youtube.com')) return reply(`The link you provided is invalid`)
                 anu = await fetchJson(`https://api.akuari.my.id/downloader/youtube?link=${text}`)        
                 if (anu.filesize_video >= 999999) return reply('*File Over Limit* '+util.format(anu))
-                const docdown = await XeonBotInc.sendMessage(from , { text: '📥 Downloading Your Song...' }, { quoted: m } )                
+                const docdown = await MoxieBotInc.sendMessage(from , { text: '📥 Downloading Your Song...' }, { quoted: m } )                
                      tummb = await getBuffer(anu.thumb)
                 audio = await getBuffer(anu.audio)  
-                await XeonBotInc.sendMessage(from, { delete: docdown.key })
-                const docup = await XeonBotInc.sendMessage(from , { text: '📤 Uploading Your Song...' }, { quoted: m } )      
-                const doc = await XeonBotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${anu.title}`}, { quoted : m }).catch((err) => reply(mess.error))
-                await XeonBotInc.sendMessage(from, { delete: docup.key })
+                await MoxieBotInc.sendMessage(from, { delete: docdown.key })
+                const docup = await MoxieBotInc.sendMessage(from , { text: '📤 Uploading Your Song...' }, { quoted: m } )      
+                const doc = await MoxieBotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${anu.title}`}, { quoted : m }).catch((err) => reply(mess.error))
+                await MoxieBotInc.sendMessage(from, { delete: docup.key })
             }
             break
             case 'ytmp4': {
@@ -2033,11 +2033,11 @@ break
                                 let media = await ytv(text, quality)
                                 if (media.filesize >= 999999) return reply('*File Over Limit* '+util.format(media))
                                 var buf = await getBuffer(media.thumb)
-                                const viddown = await XeonBotInc.sendMessage(from , { text: '📥 Downloading Your Video...' }, { quoted: m } )
-                                await XeonBotInc.sendMessage(from, { delete: viddown.key })
-                                const vidup = await XeonBotInc.sendMessage(from , { text: '📤 Uploading Your Video...' }, { quoted: m } )
-                                const vid = await XeonBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `${global.cap}` }, { quoted: m }).catch((err) => reply(mess.error))
-                                await XeonBotInc.sendMessage(from, { delete: vidup.key }) 
+                                const viddown = await MoxieBotInc.sendMessage(from , { text: '📥 Downloading Your Video...' }, { quoted: m } )
+                                await MoxieBotInc.sendMessage(from, { delete: viddown.key })
+                                const vidup = await MoxieBotInc.sendMessage(from , { text: '📤 Uploading Your Video...' }, { quoted: m } )
+                                const vid = await MoxieBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `${global.cap}` }, { quoted: m }).catch((err) => reply(mess.error))
+                                await MoxieBotInc.sendMessage(from, { delete: vidup.key }) 
                             }
                             break
                             case 'ytmp3': {	    
@@ -2048,15 +2048,15 @@ break
                      let media = await yta(text, quality)
                      if (media.filesize >= 999999) return reply('*File Over Limit* '+util.format(media))                
                      buf = await getBuffer(media.thumb) 
-                     const auddown = await XeonBotInc.sendMessage(from , { text: '📥 Downloading Your Song...' }, { quoted: m } )
-                     await XeonBotInc.sendMessage(from, { delete: auddown.key })
-                     const audup = await XeonBotInc.sendMessage(from , { text: '📤 Uploading Your Song...' }, { quoted: m } )
-                     const aud = await XeonBotInc.sendMessage(m.chat, {audio:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`}, { quoted: m }) .catch((err) => reply(mess.error))
-                     await XeonBotInc.sendMessage(from, { delete: audup.key })               
+                     const auddown = await MoxieBotInc.sendMessage(from , { text: '📥 Downloading Your Song...' }, { quoted: m } )
+                     await MoxieBotInc.sendMessage(from, { delete: auddown.key })
+                     const audup = await MoxieBotInc.sendMessage(from , { text: '📤 Uploading Your Song...' }, { quoted: m } )
+                     const aud = await MoxieBotInc.sendMessage(m.chat, {audio:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`}, { quoted: m }) .catch((err) => reply(mess.error))
+                     await MoxieBotInc.sendMessage(from, { delete: audup.key })               
                      }
                  break
 	case 'video': { 
-    XeonBotInc.sendMessage(from, { react: { text: `🎥`, key: m.key }})    
+    MoxieBotInc.sendMessage(from, { react: { text: `🎥`, key: m.key }})    
         if (!text) return reply(`Example : ${prefix + command} lelena`)
  let yts = require("yt-search")
  let search = await yts(text)
@@ -2087,7 +2087,7 @@ break
  buttons: buttons,
  headerType: 4,
  }
- XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+ MoxieBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
  }
  break
 case 'pinterest': {
