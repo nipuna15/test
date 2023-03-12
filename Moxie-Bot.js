@@ -37,9 +37,9 @@ const ini_mark = `0@s.whatsapp.net`
 const ownernya = ownernomer + '@s.whatsapp.net'
 
 //TIME
-const xtime = moment.tz('Colombo').format('HH:mm:ss')
-const xdate = moment.tz('Asia/Colombo').format('DD/MM/YYYY')
-const time2 = moment().tz('Asia/Colombo').format('HH:mm:ss')  
+const xtime = moment.tz('Asia/Kalkata').format('HH:mm:ss')
+const xdate = moment.tz('Asia/Kalkata').format('DD/MM/YYYY')
+const time2 = moment().tz('Asia/Kalkata').format('HH:mm:ss')  
  if(time2 < "23:59:00"){
 var ucapanWaktu = `Good Night 🌌`
  }
