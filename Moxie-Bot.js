@@ -702,7 +702,7 @@ MoxieBotInc.sendMessage(from, {text:`\`\`\`「 Link Detected 」\`\`\`\n\n@${m.s
 			for (let anju of Moxieyaudio){
 				if (budy === anju){
 					result = fs.readFileSync(`./Moxie_Plaguing/Moxie_Media/audio/${anju}.mp3`)
-					MoxieBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
+					MoxieBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mpeg', ptt: true }, { quoted: m })     
 					}
 			}
 			  if (Autoreply)
