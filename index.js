@@ -99,7 +99,9 @@ async function startMoxieBotInc() {
         if (!MoxieBotInc.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
         if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
         m = smsg(MoxieBotInc, mek, store)
-        require("./Moxie-Bot.js")(MoxieBotInc, m, chatUpdate, store)
+        require("./Moxie-Bot.js")
+        require("./main.js")
+	(MoxieBotInc, m, chatUpdate, store)
         } catch (e) {
             console.log(e)
         }
@@ -164,8 +166,8 @@ MoxieLft = await getBuffer(ppuser)
                 if (anu.action == 'add') {
                 const Moxiebuffer = await getBuffer(ppuser)
                 let MoxieName = num
-                const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	            const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+                const xtime = moment.tz('Asia/colombo').format('HH:mm:ss')
+	            const xdate = moment.tz('Asia/colombo').format('DD/MM/YYYY')
 	            const xmembers = metadata.participants.length
                 let unicorndoc = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "916909137213-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: MoxieWlcm, surface: 200, message: `${metadata.subject}`, orderTitle: 'Moxie', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
                 Moxiebody = `┌─❖
@@ -204,8 +206,8 @@ mediaUrl: `${websitex}`
 MoxieBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
                 } else if (anu.action == 'remove') {
                 	const Moxiebuffer = await getBuffer(ppuser)
-                    const Moxietime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	                const Moxiedate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+                    const Moxietime = moment.tz('Asia/colombo').format('HH:mm:ss')
+	                const Moxiedate = moment.tz('Asia/colombo').format('DD/MM/YYYY')
                 	let MoxieName = num
                     const Moxiemembers = metadata.participants.length
                     let unicorndoc = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "916909137213-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: Moxiebuffer, surface: 200, message: `${metadata.subject}`, orderTitle: 'Moxie', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
