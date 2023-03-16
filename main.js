@@ -395,7 +395,7 @@ let buttonMessage = {
    MoxieBotInc.sendMessage(m.chat, buttonMessage, options)
    }
 /////////////////////////////////////////////////////////////////////
-    swich
+    swich{
     case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?':{
     MoxieBotInc.sendMessage(from, { react: { text: `💖`, key: m.key }}) 
     let buttons = [
@@ -2150,7 +2150,7 @@ break
     } catch (err) {
         m.reply(util.format(err))
     }
-
+}
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
