@@ -157,97 +157,70 @@ let docs = pickRandom(documents)
                 }
                 
                 //welcome\\
-        let nama = await MoxieBotInc.getName(num)
+        llet nama = await MoxieBotInc.getName(num)
 memb = metadata.participants.length
-MoxieWlcm = await getBuffer(ppuser)
-MoxieLft = await getBuffer(ppuser)
+XeonWlcm = await getBuffer(`https://hardianto.xyz/api/welcome3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/d460e086f9f9bf6b04e17.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
+XeonLft = await getBuffer(`https://hardianto.xyz/api/goodbye3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/d460e086f9f9bf6b04e17.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
                 if (anu.action == 'add') {
                 const Moxiebuffer = await getBuffer(ppuser)
                 let MoxieName = num
                 const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	            const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+	            const xdate = moment.tz('Asia/Kolkata').format('YYYY/MM/DD')
 	            const xmembers = metadata.participants.length
-                let unicorndoc = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "916909137213-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: MoxieWlcm, surface: 200, message: `${metadata.subject}`, orderTitle: 'Moxie', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
-                Moxiebody = `┌─❖
-│「 𝗛𝗶 👋 」
-└┬❖ 「 @${MoxieName.split("@")[0]}  」
-   │✑  𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 
-   │✑  ${metadata.subject}
-   │✑  𝗠𝗲𝗺𝗯𝗲𝗿 : 
-   │✑ ${xmembers}th
-   │✑  𝗝𝗼𝗶𝗻𝗲𝗱 : 
-   │✑ ${xtime} ${xdate}
-   └───────────────┈ ⳹`
-let buttons = [
-{buttonId: `wkwwk`, buttonText: {displayText: 'Welcome 💐'}, type: 1}
-]
+                let unicorndoc = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "916909137213-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: XeonWlcm, surface: 200, message: `${metadata.subject}`, orderTitle: 'Moxie', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+                 Moxiebody = `🐬 Hi👋 @${MoxieName.split("@")[0]}
+
+🍁 Welcome To  ${metadata.subject}
+🍁 ${xmembers} Members
+
+Date 📆  =  ${xdate}
+Time ⏰ =  ${xtime} `
+      //if you copy the code value,
+   //dont forget to put my name(Xeon) as credit
+   //you fail to put, i sue you for sure!
+   let buttons = [
+    {buttonId: `owner`, buttonText: {displayText: '👍 WELCOME 👍'}, type: 1},
+    {buttonId: `menu`, buttonText: {displayText: '♞ MENU ♞'}, type: 1}
+    ]
 let buttonMessage = {
-document: fs.readFileSync('./Moxie_Plaguing/Moxie_Media/theme/Moxie.xlsx'),
-mimetype: docs,
-jpegThumbnail:MoxieWlcm,
-mentions: [num],
-fileName: `${metadata.subject}`,
-fileLength: 99999999999999,
+    image: { url: 'https://i.ibb.co/hXtGkzj/welcome-poster-spectrum-brush-strokes-white-background-colorful-gradient-brush-design-vector-paper-i.jpg'},
 caption: Moxiebody,
 footer: `${botname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title: `${ownername}`,
-body: `Don't forget to read group description`,
-mediaType:2,
-thumbnail: MoxieWlcm,
-sourceUrl: `${websitex}`,
-mediaUrl: `${websitex}`
-}}
+buttons,
+headerType: 4
 }
-MoxieBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
+MoxieBotInc.sendMessage(anu.id, buttonMessage)
                 } else if (anu.action == 'remove') {
                 	const Moxiebuffer = await getBuffer(ppuser)
                     const Moxietime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	                const Moxiedate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+	                const Moxiedate = moment.tz('Asia/Kolkata').format('YYYY/MM/DD')
                 	let MoxieName = num
                     const Moxiemembers = metadata.participants.length
                     let unicorndoc = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "916909137213-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: Moxiebuffer, surface: 200, message: `${metadata.subject}`, orderTitle: 'Moxie', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
-                    Moxiebody = `┌─❖
-│「 𝗚𝗼𝗼𝗱𝗯𝘆𝗲 👋 」
-└┬❖ 「 @${MoxieName.split("@")[0]}  」
-   │✑  𝗟𝗲𝗳𝘁 
-   │✑ ${metadata.subject}
-   │✑  𝗠𝗲𝗺𝗯𝗲𝗿 : 
-   │✑ ${Moxiemembers}th
-   │✑  𝗧𝗶𝗺𝗲 : 
-   │✑  ${Moxietime} ${Moxiedate}
-   └───────────────┈ ⳹`
-let buttons = [
-{buttonId: `wkwkwk`, buttonText: {displayText: 'Sayonara 🥀'}, type: 1}
-]
-let buttonMessage = {
-document: fs.readFileSync('./Moxie_Plaguing/Moxie_Media/theme/Moxie.xlsx'),
-mimetype: docs,
-jpegThumbnail:MoxieLft,
-mentions: [num],
-fileName: `${metadata.subject}`,
-fileLength: 99999999999999,
-caption: Moxiebody,
-footer: `${botname}`,
-buttons: buttons,
-headerType: 4,
-contextInfo:{externalAdReply:{
-title: `${ownername}`,
-body: `Bye! my friend, take care.`,
-mediaType:2,
-thumbnail: MoxieLft,
-sourceUrl: `${websitex}`,
-mediaUrl: `${websitex}`
-}}
-}
-MoxieBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
-                             
+                     Moxiebody = `🐬 Bye👋 @${MoxieName.split("@")[0]}
+
+🍁 Left From  ${metadata.subject}
+🍁 ${Moxiemembers} Members
+                    
+Date 📆 =  ${Moxiedate}
+Time ⏰ =  ${Moxietime} `
+
+   let buttons = [
+    {buttonId: `owner`, buttonText: {displayText: '🐼 BYE 🐼'}, type: 1},
+    {buttonId: `menu`, buttonText: {displayText: '♞ MENU ♞'}, type: 1}
+    ]
+    let buttonMessage = {
+        image: { url: 'https://i.ibb.co/gytytkM/images.jpg'},
+    caption: Moxiebody,
+    footer: `${botname}`,
+    buttons,
+    headerType: 4
+    }
+MoxieBotInc.sendMessage(anu.id, buttonMessage)
                 }
             }
-        } catch (e) {
-            console.log(e)
+        } catch (err) {
+            console.log(err)
         }
     })
     // Setting
