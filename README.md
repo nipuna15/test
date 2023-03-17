@@ -2,7 +2,7 @@
 
 <h1 align="center">**MOXIE USER BOT**<br></h1>
 <p align="center">
-<img src="https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg" alt="animated" width="900" height="450" />
+<img src="https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg" alt="animated" width="500" height="700" />
 </p>
 
 <p align="center">
