@@ -6345,7 +6345,7 @@ Moxie (Me)
 My family
 And all friends who helped assemble this sexy script !!!`
 break
-case 'alive': case:'Hi' case 'help': case '?':{
+case 'alive': case'Hi': case 'help': case '?':{
 let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed();
