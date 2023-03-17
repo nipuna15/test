@@ -164,8 +164,8 @@ XeonLft = await getBuffer(`https://hardianto.xyz/api/goodbye3?profile=${encodeUR
                 if (anu.action == 'add') {
                 const Moxiebuffer = await getBuffer(ppuser)
                 let MoxieName = num
-                const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	            const xdate = moment.tz('Asia/Kolkata').format('YYYY/MM/DD')
+                const xtime = moment.tz('Asia/colombo').format('HH:mm:ss')
+	            const xdate = moment.tz('Asia/colombo').format('YYYY/MM/DD')
 	            const xmembers = metadata.participants.length
                 let unicorndoc = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "916909137213-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: XeonWlcm, surface: 200, message: `${metadata.subject}`, orderTitle: 'Moxie', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
                  Moxiebody = `🐬 Hi👋 @${MoxieName.split("@")[0]}
@@ -192,8 +192,8 @@ headerType: 4
 MoxieBotInc.sendMessage(anu.id, buttonMessage)
                 } else if (anu.action == 'remove') {
                 	const Moxiebuffer = await getBuffer(ppuser)
-                    const Moxietime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	                const Moxiedate = moment.tz('Asia/Kolkata').format('YYYY/MM/DD')
+                    const Moxietime = moment.tz('Asia/colombo').format('HH:mm:ss')
+	                const Moxiedate = moment.tz('Asia/colombo').format('YYYY/MM/DD')
                 	let MoxieName = num
                     const Moxiemembers = metadata.participants.length
                     let unicorndoc = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "916909137213-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: Moxiebuffer, surface: 200, message: `${metadata.subject}`, orderTitle: 'Moxie', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
