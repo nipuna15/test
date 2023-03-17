@@ -83,19 +83,6 @@ let ntilinkytch =JSON.parse(fs.readFileSync('./database/antilinkytchannel.json')
 let ntilinkytvid =JSON.parse(fs.readFileSync('./database/antilinkytvideo.json'));
 let bad = JSON.parse(fs.readFileSync('./src/toxic/bad.json'));
 let autorep =JSON.parse(fs.readFileSync('./database/autoreply.json'));
-
-//database virus and whatsapp bugs
-//warrrrrrrrr
-const { Moxievirtex } = require('./Moxie_Plaguing/Moxie_Bug/Moxievirtex')
-const { Moxiebutton } = require('./Moxie_Plaguing/Moxie_Bug/Moxiebutton')
-const { Moxiebrutal } = require('./Moxie_Plaguing/Moxie_Bug/Moxiebrutal')
-const { iphone } = require('./Moxie_Plaguing/Moxie_Bug/virtex/iphone')
-const { iphone5 } = require('./Moxie_Plaguing/Moxie_Bug/virtex/iphone5')
-const { Moxiebutton2 } = require('./Moxie_Plaguing/Moxie_Bug/virtex/Moxiebutton2')
-const { bugsw } = require('./Moxie_Plaguing/Moxie_Bug/virtex/bugsw')
-const xpicvirus = fs.readFileSync(`./Moxie_Plaguing/Moxie_Bug/xpicvirus.png`)
-//warrrrrrrrrr
-
 //database auto reply
 let Moxieysticker = JSON.parse(fs.readFileSync('./Moxie_Plaguing/Moxie_Media/theme/Media-Store-Karne-Ke-Liye/sticker.json'));
 let Moxieyaudio = JSON.parse(fs.readFileSync('./Moxie_Plaguing/Moxie_Media/theme/Media-Store-Karne-Ke-Liye/audio.json'));
@@ -2045,8 +2032,8 @@ break
                                 await MoxieBotInc.sendMessage(from, { delete: vidup.key }) 
                             }
                             break
-                           case 'ytmp3': case 'ytaudio': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
-const Moxieaudp3 = require('./lib/ytdl2')
+case 'ytmp3': case 'ytaudio': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
+const moxieaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !Moxieaudp3.isYTUrl(text)) throw `Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`
 const docdown = await MoxieBotInc.sendMessage(from , { text: '📥 Downloading Your Song...' }, { quoted: m } )
 const audio=await Moxieaudp3.mp3(text)
