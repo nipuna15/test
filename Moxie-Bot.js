@@ -6397,7 +6397,7 @@ let ownernya = ownernomer + '@s.whatsapp.net'
     MoxieBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
 break
-            case 'command': case: 'menu': {
+            case 'command': case'menu' :{
 	const sections = [{
 								"title": "Initial Features Of Bot 🦄",
 								"rows": [
