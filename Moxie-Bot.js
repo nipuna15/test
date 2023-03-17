@@ -2034,13 +2034,13 @@ break
                             break
 case 'ytmp3': case 'ytaudio': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
 const moxieaudp3 = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !Moxieaudp3.isYTUrl(text)) throw `Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`
+if (args.length < 1 || !isUrl(text) || !moxieaudp3.isYTUrl(text)) throw `Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`
 const songdown = await MoxieBotInc.sendMessage(from , { text: '📥 Downloading Your Song...' }, { quoted: m } )
-const audio=await Moxieaudp3.mp3(text)
+const Audio=await moxieaudp3.mp3(text)
 await MoxieBotInc.sendMessage(from, { delete: songdown.key })
 const songcup = await MoxieBotInc.sendMessage(from , { text: '📤 Uploading Your Song...' }, { quoted: m } )
 await MoxieBotInc.sendMessage(m.chat,{
-    audio: fs.readFileSync(audio.path),
+    Audio: fs.readFileSync(audio.path),
     mimetype: 'audio/mp4', ptt: true,
     contextInfo:{
         externalAdReply:{
