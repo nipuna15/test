@@ -164,8 +164,8 @@ MoxieLft = await getBuffer(ppuser)
                 if (anu.action == 'add') {
                 const Moxiebuffer = await getBuffer(ppuser)
                 let MoxieName = num
-                const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	            const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+                const xtime = moment.tz('Asia/colombo').format('HH:mm:ss')
+	            const xdate = moment.tz('Asia/colombo').format('DD/MM/YYYY')
 	            const xmembers = metadata.participants.length
                 let unicorndoc = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "916909137213-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: MoxieWlcm, surface: 200, message: `${metadata.subject}`, orderTitle: 'Moxie', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
                 Moxiebody = `┌─❖
@@ -204,8 +204,8 @@ mediaUrl: `${websitex}`
 MoxieBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
                 } else if (anu.action == 'remove') {
                 	const Moxiebuffer = await getBuffer(ppuser)
-                    const Moxietime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	                const Moxiedate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+                    const Moxietime = moment.tz('Asia/colombo').format('HH:mm:ss')
+	                const Moxiedate = moment.tz('Asia/colombo').format('DD/MM/YYYY')
                 	let MoxieName = num
                     const Moxiemembers = metadata.participants.length
                     let unicorndoc = {key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "916909137213-1604595598@g.us"}, "message": {orderMessage: {itemCount: 9999999,status: 200, thumbnail: Moxiebuffer, surface: 200, message: `${metadata.subject}`, orderTitle: 'Moxie', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
@@ -329,7 +329,7 @@ MoxieBotInc.sendMessage(anu.id, buttonMessage, {quoted:unicorndoc})
             else if (reason === DisconnectReason.timedOut) { console.log("Connection TimedOut, Reconnecting..."); startMoxieBotInc(); }
             else MoxieBotInc.end(`Unknown DisconnectReason: ${reason}|${connection}`)
         }
-        console.log('Connected...', update)
+        console.log('Connected..✅', update)
     })
 
     MoxieBotInc.ev.on('creds.update', saveState)
