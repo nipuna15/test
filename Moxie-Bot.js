@@ -6356,7 +6356,7 @@ let ownernya = ownernomer + '@s.whatsapp.net'
     {buttonId: `ping`, buttonText: {displayText: 'PING'}, type: 1}
     ]
     let buttonMessage = {
-    image: { url: `$https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg` },
+    image: { url: `https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg`},
     caption: `┌─❖
 │ Hi 👋 
 └┬❖  ${pushname} 
