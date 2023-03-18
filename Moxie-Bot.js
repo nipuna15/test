@@ -6338,25 +6338,18 @@ var inputnumber = text.split(" ")[0]
         }
         m.reply(`${text66}${nobio}${nowhatsapp}`)
 break
-case 'tqtt': 
-throw `Thanks to
-LORD BUDDHA
-Moxie (Me)
-My family
-And all friends who helped assemble this sexy script !!!`
-break
 case 'alive': case'Hi': case 'help': case '?':{
+Moxieinc.sendMessage(from, { react: { text: `💖`, key: m.key }})
 let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed();
-            let latensie = speed() - timestampe
-            Moxieinc.sendMessage(from, { react: { text: `💖`, key: m.key }}) 
+            let latensie = speed() - timestampe 
             let buttons = [
     {buttonId: `command`, buttonText: {displayText: 'MENU'}, type: 1},
     {buttonId: `ping`, buttonText: {displayText: 'PING'}, type: 1}
     ]
     let buttonMessage = {
-    image: { url: `https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg`},
+    image: { url: `https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg` },
     caption: `┌─❖
 │ Hi 👋 
 └┬❖  ${pushname} 
@@ -6398,6 +6391,7 @@ let ownernya = ownernomer + '@s.whatsapp.net'
 }
 break
             case 'command': case'menu' :{
+     Moxieinc.sendMessage(from, { react: { text: `💌`, key: m.key }})
 	const sections = [{
 								"title": "Initial Features Of Bot 🦄",
 								"rows": [
