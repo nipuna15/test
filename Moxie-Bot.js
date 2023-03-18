@@ -6339,7 +6339,6 @@ var inputnumber = text.split(" ")[0]
         m.reply(`${text66}${nobio}${nowhatsapp}`)
 break
 case 'alive': case'Hi': case 'help': case '?':{
-Moxieinc.sendMessage(from, { react: { text: `💖`, key: m.key }})
 let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed();
@@ -6391,7 +6390,6 @@ let ownernya = ownernomer + '@s.whatsapp.net'
 }
 break
             case 'command': case'menu' :{
-     Moxieinc.sendMessage(from, { react: { text: `💌`, key: m.key }})
 	const sections = [{
 								"title": "Initial Features Of Bot 🦄",
 								"rows": [
