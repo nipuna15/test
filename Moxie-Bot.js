@@ -6531,6 +6531,10 @@ const listMessage = {
 const sendMsg = await MoxieBotInc.sendMessage(m.chat, listMessage)
 }
 break
+case 'Hi': case 'hi': case 'Helo':case 'Hello': case'Hey':{
+    MoxieBotInc.sendMessage(m.chat, { audio: { url:'https://raw.githubusercontent.com/nipuna15/sever/main/audio/Hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
+}
+break
             case 'allmenu':{
 var unicorn = await getBuffer(picak+'All Menu')
 
@@ -6541,7 +6545,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════✪ OWNER 	
+    caption: `╔═══════* OWNER 	
 ╠ ${prefix}self
 ╠ ${prefix}public
 ╠ ${prefix}join [link]
