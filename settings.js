@@ -33,6 +33,22 @@ global.packname = "Sticker By" //ur sticker watermark packname
 global.author = "Moxie Bot" //ur sticker watermark author
 global.wm = "Moxie Bot Inc." //ur watermark
 
+//Downlod messages
+global.videodownlod = "📥 Downloading Your Video..."
+global.videouplod = "📤 Uploading Your Video..."
+global.songdownlod = "📥 Downloading Your Song..."
+global.songuplod = "📤 Uploading Your Song..."
+
+//Image url
+global.aliveimg = "https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg"
+global.menuimg = "https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg"
+
+
+//alive,menu messages
+global.alivemg = "┌─❖/n│ Hi 👋 /n└┬❖  ${pushname} /n┌┤✑  ${ucapanWaktu} 😄/n│└────────────┈ ⳹n│/n└─ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊        /n│𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds/n│𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}/n│𝗣𝗼𝘄𝗲𝗿𝗲𝗱 : @${ini_mark.split('@')[0]}/n│𝗕𝗼𝘁 : ${global.botname}/n│𝗢𝘄𝗻𝗲𝗿 : @${ownernya.split('@')[0]}/n│𝗣𝗿𝗲𝗳𝗶𝘅 :  NO-PREFIX /n│𝗠𝗼𝗱𝗲 : ${MoxieBotInc.public ? 'Public' : `Self`}/n│𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}/n│𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}/n│𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}/n│𝗧𝗼𝘁𝗮𝗹 𝗛𝗶𝘁 : ${jumlahcmd}/n│𝗧𝗼𝘁𝗮𝗹 𝗛𝗶𝘁 𝗧𝗼𝗱𝗮𝘆 : ${jumlahharian}n/│/n└─ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 /n│𝗡𝗮𝗺𝗲 : ${pushname}/n│𝗡𝘂𝗺𝗯𝗲𝗿 : @${me.split('@')[0]}/n│𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ${isPremium ? '✅' : `❌`}/n│𝗟𝗶𝗺𝗶𝘁 : ${isPremium ? '♾Infinity' : `〽️${db.data.users[m.sender].limit}`}/n│/n└─ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 /n│𝗧𝗶𝗺𝗲 : ${xtime}/n│𝗗𝗮𝘁𝗲 : ${xdate}/n└┬────────────┈ ⳹/n │✑  Please Select/n/n│✑  The Button Below/n └─────────────┈ ⳹"
+global.antilinkmg = "\'\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send any link in this group or u will be kicked immediately!"
+global.badwordmg = "\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to use bad words in this group, one who uses will be kicked immediately!"
+
 // Other
 global.sessionName = 'session'
 global.prefa = ['','!','.','#','&']
@@ -69,7 +85,7 @@ global.flasmurf = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutp
 //adventure1
     global.limitawal = {
     premium: "Infinity",
-    free: 12,
+    free: 100,
     monayawal: 1000
 }
    global.rpg = {

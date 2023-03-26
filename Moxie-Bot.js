@@ -40,22 +40,19 @@ const ownernya = ownernomer + '@s.whatsapp.net'
 const xtime = moment.tz('Asia/colombo').format('HH:mm:ss')
 const xdate = moment.tz('Asia/colombo').format('DD/MM/YYYY')
 const time2 = moment().tz('Asia/colombo').format('HH:mm:ss')  
- if(time2 < "23:59:00"){
+ if(time2 < "17:59:59"){
 var ucapanWaktu = `Good Night 🌌`
  }
- if(time2 < "19:00:00"){
-var ucapanWaktu = `Good Evening 🌃`
- }
- if(time2 < "18:00:00"){
-var ucapanWaktu = `Good Evening 🌃`
- }
  if(time2 < "15:00:00"){
+var ucapanWaktu = `Good Evening 🌃`
+ }
+ if(time2 < "12:00:00"){
 var ucapanWaktu = `Good Afternoon 🌅`
  }
- if(time2 < "11:00:00"){
+ if(time2 < "24:00:00"){
 var ucapanWaktu = `Good Morning 🌄`
  }
- if(time2 < "05:00:00"){
+ if(time2 < "24:00:00"){
 var ucapanWaktu = `Good Morning 🌄`
  } 
  
@@ -83,11 +80,6 @@ let ntilinkytch =JSON.parse(fs.readFileSync('./database/antilinkytchannel.json')
 let ntilinkytvid =JSON.parse(fs.readFileSync('./database/antilinkytvideo.json'));
 let bad = JSON.parse(fs.readFileSync('./src/toxic/bad.json'));
 let autorep =JSON.parse(fs.readFileSync('./database/autoreply.json'));
-//database auto reply
-let Moxieysticker = JSON.parse(fs.readFileSync('./Moxie_Plaguing/Moxie_Media/theme/Media-Store-Karne-Ke-Liye/sticker.json'));
-let Moxieyaudio = JSON.parse(fs.readFileSync('./Moxie_Plaguing/Moxie_Media/theme/Media-Store-Karne-Ke-Liye/audio.json'));
-let Moxieyimage = JSON.parse(fs.readFileSync('./Moxie_Plaguing/Moxie_Media/theme/Media-Store-Karne-Ke-Liye/image.json'));
-let Moxieyvideo = JSON.parse(fs.readFileSync('./Moxie_Plaguing/Moxie_Media/theme/Media-Store-Karne-Ke-Liye/video.json'));
 
 module.exports = MoxieBotInc = async (MoxieBotInc, m, chatUpdate, store) => {
     try {
@@ -2024,9 +2016,9 @@ break
                                 let media = await ytv(text, quality)
                                 if (media.filesize >= 999999) return reply('*File Over Limit* '+util.format(media))
                                 var buf = await getBuffer(media.thumb)
-                                const viddown = await MoxieBotInc.sendMessage(from , { text: '📥 Downloading Your Video...' }, { quoted: m } )
+                                const viddown = await MoxieBotInc.sendMessage(from , { text: global.videodownlod}, { quoted: m } )
                                 await MoxieBotInc.sendMessage(from, { delete: viddown.key })
-                                const vidup = await MoxieBotInc.sendMessage(from , { text: '📤 Uploading Your Video...' }, { quoted: m } )
+                                const vidup = await MoxieBotInc.sendMessage(from , { text:global.videouplod}, { quoted: m } )
                                 const vid = await MoxieBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `video.meta.title.mp4`, caption: `${global.cap}` }, { quoted: m }).catch((err) => reply(mess.error))
                                 await MoxieBotInc.sendMessage(from, { delete: vidup.key }) 
                             }
@@ -2034,10 +2026,10 @@ break
 case 'ytmp3': case 'ytaudio': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
 const moxieaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !moxieaudp3.isYTUrl(text)) throw `Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`
-const songdown = await MoxieBotInc.sendMessage(from , { text: '📥 Downloading Your Song...' }, { quoted: m } )
+const songdown = await MoxieBotInc.sendMessage(from , { text: global.songdownlod}, { quoted: m } )
 const Audio=await moxieaudp3.mp3(text)
 await MoxieBotInc.sendMessage(from, { delete: songdown.key })
-const songcup = await MoxieBotInc.sendMessage(from , { text: '📤 Uploading Your Song...' }, { quoted: m } )
+const songcup = await MoxieBotInc.sendMessage(from , { text: global.songuplod}, { quoted: m } )
 await MoxieBotInc.sendMessage(m.chat,{
     Audio: fs.readFileSync(audio.path),
     mimetype: 'audio/mp4', ptt: true,
@@ -4005,7 +3997,7 @@ var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-MoxieBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nIf you're not an admin, don't send any link in this group or u will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+MoxieBotInc.sendMessage(from, {text: global.antilinkmg, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
 if (!AntiLinkAll) return m.reply('Already deactivated')
 let off = ntilinkall.indexOf(from)
@@ -4036,7 +4028,7 @@ var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-MoxieBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to use bad words in this group, one who uses will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+MoxieBotInc.sendMessage(from, {text: global.badwordmg, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
 if (!antiToxic) return m.reply('Already deactivated')
 let off = nttoxic.indexOf(from)
@@ -6347,40 +6339,8 @@ let ownernya = ownernomer + '@s.whatsapp.net'
     {buttonId: `ping`, buttonText: {displayText: 'PING'}, type: 1}
     ]
     let buttonMessage = {
-    image: { url: `https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg` },
-    caption: `┌─❖
-│ Hi 👋 
-└┬❖  ${pushname} 
-┌┤✑  ${ucapanWaktu} 😄
-│└────────────┈ ⳹
-│
-└─ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊        
-│𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
-│𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
-│𝗣𝗼𝘄𝗲𝗿𝗲𝗱 : @${ini_mark.split('@')[0]}
-│𝗕𝗼𝘁 : ${global.botname}
-│𝗢𝘄𝗻𝗲𝗿 : @${ownernya.split('@')[0]}
-│𝗣𝗿𝗲𝗳𝗶𝘅 :  NO-PREFIX 
-│𝗠𝗼𝗱𝗲 : ${MoxieBotInc.public ? 'Public' : `Self`}
-│𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
-│𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
-│𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿 : ${Object.keys(global.db.data.users).length}
-│𝗧𝗼𝘁𝗮𝗹 𝗛𝗶𝘁 : ${jumlahcmd}
-│𝗧𝗼𝘁𝗮𝗹 𝗛𝗶𝘁 𝗧𝗼𝗱𝗮𝘆 : ${jumlahharian}
-│
-└─ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 
-│𝗡𝗮𝗺𝗲 : ${pushname}
-│𝗡𝘂𝗺𝗯𝗲𝗿 : @${me.split('@')[0]}
-│𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ${isPremium ? '✅' : `❌`}
-│𝗟𝗶𝗺𝗶𝘁 : ${isPremium ? '♾Infinity' : `〽️${db.data.users[m.sender].limit}`}
-│
-└─ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 
-│𝗧𝗶𝗺𝗲 : ${xtime}
-│𝗗𝗮𝘁𝗲 : ${xdate}
-└┬────────────┈ ⳹
-   │✑  Please Select
-   │✑  The Button Below
-   └─────────────┈ ⳹`,
+    image: { url: global.aliveimg},
+    caption: global.alivemg,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4,
@@ -6551,7 +6511,7 @@ case 'vasi': case 'Huththi': case 'vesavi':case 'poni': case'Vassi':{
 }
 break
             case 'allmenu':{
-var unicorn = await getBuffer(picak+'All Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -6559,8 +6519,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ OWNER 	
+    image: global.menuimg,
+    caption: `╔═══════💖 OWNER 	
 ╠ ${prefix}self
 ╠ ${prefix}public
 ╠ ${prefix}join [link]
@@ -6576,7 +6536,7 @@ const buttonMessage = {
 ╠ ${prefix}creategroup [name]
 ╠ ${prefix}block [tag/number]
 ╠ ${prefix}unblock [tag/number]
-╠═══════✪ GROUP 	        
+╠═══════💖 GROUP 	        
 ╠${prefix}grouplink
 ╠${prefix}ephemeral [option]
 ╠${prefix}setgcpp [image]
@@ -6611,7 +6571,7 @@ const buttonMessage = {
 ╠${prefix}upvote
 ╠${prefix}checkvote
 ╠${prefix}delvote
-╠═══════✪ MAKER 
+╠═══════💖 MAKER 
 ╠${prefix}candy
 ╠${prefix}blackpinkneon
 ╠${prefix}deepsea
@@ -6713,7 +6673,7 @@ const buttonMessage = {
 ╠ ${prefix}halloween
 ╠ ${prefix}watercolor
 ╠ ${prefix}classic
-╠═════✪ DOWNLOAD 	
+╠═════💖 DOWNLOAD 	
 ╠${prefix}tiktok [url]
 ╠${prefix}tiktokaudio [url]
 ╠${prefix}instagram [url]
@@ -6722,7 +6682,7 @@ const buttonMessage = {
 ╠${prefix}ytmp3 [url|quality]
 ╠${prefix}ytmp4 [url|quality]
 ╠${prefix}gitclone [repo link]
-╠═══════✪ SEARCH 	
+╠═══════💖 SEARCH 	
 ╠${prefix}play [query]
 ╠${prefix}song [query]
 ╠${prefix}yts [query]
@@ -6741,7 +6701,7 @@ const buttonMessage = {
 ╠${prefix}wikimedia [query]
 ╠${prefix}ytsearch [query]
 ╠${prefix}ringtone [query]
-╠═══════✪ CONVERT 
+╠═══════💖 CONVERT 
 ╠ ${prefix}toimage [reply stick]
 ╠ ${prefix}sticker [reply img|gif]
 ╠ ${prefix}take [reply img|gif|stik]
@@ -6769,9 +6729,9 @@ const buttonMessage = {
 ╠${prefix}slow [reply aud]
 ╠${prefix}smooth [reply aud]
 ╠${prefix}squirrel [reply aud]
-╠═══════✪ IMG EFFECT 
+╠═══════💖 IMG EFFECT 
 ╠${prefix}removebg [reply img]
-╠═══════✪ RANDOM IMG 
+╠═══════💖 RANDOM IMG 
 ╠${prefix}coffee
 ╠${prefix}woof
 ╠${prefix}meow
@@ -6809,7 +6769,7 @@ const buttonMessage = {
 ╠${prefix}couplepicture
 ╠${prefix}wallphone
 ╠${prefix}wallml
-╠═══════✪ RANDOM VIDEO
+╠═══════💖 RANDOM VIDEO
 ╠${prefix}tiktokgirl	
 ╠${prefix}tiktoknukhty
 ╠${prefix}tiktokpanrika
@@ -6818,7 +6778,7 @@ const buttonMessage = {
 ╠${prefix}tiktokghea
 ╠${prefix}tiktoksantuy
 ╠${prefix}tiktokbocil
-╠═══════✪ EMOTE 
+╠═══════💖 EMOTE 
 ╠${prefix}instagramemoji
 ╠${prefix}facebookemoji
 ╠${prefix}iphoneemoji
@@ -6831,7 +6791,7 @@ const buttonMessage = {
 ╠${prefix}googleemoji
 ╠${prefix}pediaemoji
 ╠${prefix}microsoftemoji
-╠═══════✪ ANIME 
+╠═══════💖 ANIME 
 ╠${prefix}animeneko
 ╠${prefix}waifu
 ╠${prefix}animewaifu
@@ -6883,7 +6843,7 @@ const buttonMessage = {
 ╠${prefix}couplepp
 ╠${prefix}animewall [query]
 ╠${prefix}animewall2 [query]
-╠══════✪ STICKER 
+╠══════💖 STICKER 
 ╠ ${prefix}patrick
 ╠ ${prefix}emoji
 ╠ ${prefix}emojimix
@@ -6895,7 +6855,7 @@ const buttonMessage = {
 ╠ ${prefix}nicholas
 ╠ ${prefix}cartoon
 ╠ ${prefix}stickman
-╠════✪ ANIME STICKER 
+╠════💖 ANIME STICKER 
 ╠${prefix}loli
 ╠${prefix}bully
 ╠${prefix}cuddle
@@ -6925,7 +6885,7 @@ const buttonMessage = {
 ╠${prefix}cringe
 ╠${prefix}neko
 ╠${prefix}gura
-╠═══════✪ NSFW 
+╠═══════💖 NSFW 
 ╠${prefix}gifhentai
 ╠${prefix}gifblowjob
 ╠${prefix}hentaivideo
@@ -6961,7 +6921,7 @@ const buttonMessage = {
 ╠${prefix}thights
 ╠${prefix}yuri
 ╠${prefix}zettai
-╠═══════✪ FUN 
+╠═══════💖 FUN 
 ╠ ${prefix}say [text]
 ╠ ${prefix}define [text]
 ╠ ${prefix}how [text
@@ -7037,7 +6997,7 @@ const buttonMessage = {
 ╠ ${prefix}fuckgirl
 ╠ ${prefix}playgirl
 ╠ ${prefix}quotes
-╠══════✪ GAME 
+╠══════💖 GAME 
 ╠ ${prefix}truth
 ╠ ${prefix}dare
 ╠ ${prefix}tictactoe
@@ -7045,12 +7005,12 @@ const buttonMessage = {
 ╠ ${prefix}guess [option]
 ╠ ${prefix}math [mode]
 ╠ ${prefix}suitpvp [tag]
-╠══✪ ANONYMOUS CHAT 
+╠══💖 ANONYMOUS CHAT 
 ╠${prefix}anonymous
 ╠${prefix}start
 ╠${prefix}next
 ╠${prefix}leave
-╠══════✪ DATABASE 
+╠══════💖 DATABASE 
 ╠ ${prefix}setcmd
 ╠ ${prefix}listcmd
 ╠ ${prefix}delcmd
@@ -7059,7 +7019,7 @@ const buttonMessage = {
 ╠ ${prefix}listmsg
 ╠ ${prefix}getmsg
 ╠ ${prefix}delmsg
-╠══════✪ OTHER 
+╠══════💖 OTHER 
 ╠ ${prefix}afk
 ╠ ${prefix}id
 ╠ ${prefix}toqr [link]
@@ -7080,7 +7040,7 @@ const buttonMessage = {
 ╠ ${prefix}donate
 ╠ ${prefix}request
 ╠ ${prefix}report [bug]
-╠═══════✪「 BUG MENU 」	
+╠═══════💖「 BUG MENU 」	
 ╠════☾pc attack☽
 ╠${prefix}pcbut [number]
 ╠${prefix}pcvn [number]
@@ -7111,7 +7071,7 @@ const buttonMessage = {
 ╠${prefix}docfuck [amount]
 ╠${prefix}docsoft [amount]
 ╠${prefix}docsoft2 [amount]
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7120,15 +7080,15 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
       case 'ownermenu':{
-	   var unicorn = await getBuffer(picak+'Owner Menu')
+
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
   {buttonId: 'donate', buttonText: {displayText: 'Donate 🍵'}, type: 1},
   {buttonId: 'owner', buttonText: {displayText: 'Owner ??'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ OWNER 	
+    image: global.menuimg,
+    caption: `╔═══════💖 OWNER 	
 ╠ ${prefix}self
 ╠ ${prefix}public
 ╠ ${prefix}join [link]
@@ -7142,7 +7102,7 @@ const buttonMessage = {
 ╠ ${prefix}setppbot [image]
 ╠ ${prefix}setthumb [reply img]
 ╠ ${prefix}setexif
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7151,7 +7111,6 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
             case 'groupmenu':{
-var unicorn = await getBuffer(picak+'Group Menu')
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7159,8 +7118,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ GROUP 	
+    image: global.menuimg,
+    caption: `╔═══════💖 GROUP 	
 ╠${prefix}grouplink
 ╠${prefix}ephemeral [option]
 ╠${prefix}setgcpp [image]
@@ -7200,7 +7159,7 @@ const buttonMessage = {
 ╠${prefix}upvote
 ╠${prefix}checkvote
 ╠${prefix}delvote
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7209,7 +7168,6 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
 case 'makermenu':{
-var unicorn = await getBuffer(picak+'Maker Menu')
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7217,8 +7175,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ MAKER 	
+    image: global.menuimg,
+    caption: `╔═══════💖 MAKER 	
 ╠${prefix}candy
 ╠${prefix}8bit
 ╠${prefix}horror
@@ -7324,7 +7282,7 @@ const buttonMessage = {
 ╠ ${prefix}halloween
 ╠ ${prefix}watercolor
 ╠ ${prefix}classic
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7333,7 +7291,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
             case 'downloadmenu':{
-var unicorn = await getBuffer(picak+'Download Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7341,8 +7299,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ DOWNLOAD 	
+    image: global.menuimg,
+    caption: `╔═══════💖 DOWNLOAD 	
 ╠${prefix}tiktok [url]
 ╠${prefix}tiktokaudio [url]
 ╠${prefix}instagram [url]
@@ -7351,7 +7309,7 @@ const buttonMessage = {
 ╠${prefix}ytmp3 [url|quality]
 ╠${prefix}ytmp4 [url|quality]
 ╠${prefix}gitclone [repo link]
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7360,7 +7318,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
             case 'searchmenu':{
-var unicorn = await getBuffer(picak+'Search Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7368,8 +7326,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ SEARCH 	
+    image: global.menuimg,
+    caption: `╔═══════💖 SEARCH 	
 ╠${prefix}play [query]
 ╠${prefix}song [query]
 ╠${prefix}yts [query]
@@ -7388,7 +7346,7 @@ const buttonMessage = {
 ╠${prefix}wikimedia [query]
 ╠${prefix}ytsearch [query]
 ╠${prefix}ringtone [query]
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7397,7 +7355,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
             case 'convertmenu':{
-var unicorn = await getBuffer(picak+'Convert Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7405,8 +7363,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ CONVERT 	
+    image: global.menuimg,
+    caption: `╔═══════💖 CONVERT 	
 ╠ ${prefix}toimage [reply stick]
 ╠ ${prefix}sticker [reply img|gif]
 ╠ ${prefix}take [reply img|gif|stik]
@@ -7434,7 +7392,7 @@ const buttonMessage = {
 ╠${prefix}slow [reply aud]
 ╠${prefix}smooth [reply aud]
 ╠${prefix}squirrel [reply aud]
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7443,16 +7401,14 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
 case 'randomimagemenu':{
-var unicorn = await getBuffer(picak+'Random Image Menu')
-
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
   {buttonId: 'donate', buttonText: {displayText: 'Donate 🍵'}, type: 1},
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ RANDOM IMG 	
+    image: global.menuimg,
+    caption: `╔═══════💖 RANDOM IMG 	
 ╠${prefix}coffee
 ╠${prefix}woof
 ╠${prefix}meow
@@ -7490,7 +7446,7 @@ const buttonMessage = {
 ╠${prefix}couplepicture
 ╠${prefix}wallphone
 ╠${prefix}wallml
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7499,7 +7455,6 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
 case 'randomvideomenu':{
-var unicorn = await getBuffer(picak+'Random Video Menu')
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7507,8 +7462,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ RANDOM VIDEO
+    image: global.menuimg,
+    caption: `╔═══════💖 RANDOM VIDEO
 ╠${prefix}tiktokgirl	
 ╠${prefix}tiktoknukhty
 ╠${prefix}tiktokpanrika
@@ -7517,7 +7472,7 @@ const buttonMessage = {
 ╠${prefix}tiktokghea
 ╠${prefix}tiktoksantuy
 ╠${prefix}tiktokbocil
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7526,7 +7481,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
            case 'emotemenu':{
-var unicorn = await getBuffer(picak+'Emote Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7534,8 +7489,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ EMOTE 	
+    image: global.menuimg,
+    caption: `╔═══════💖 EMOTE 	
 ╠${prefix}instagramemoji
 ╠${prefix}facebookemoji
 ╠${prefix}iphoneemoji
@@ -7548,7 +7503,7 @@ const buttonMessage = {
 ╠${prefix}googleemoji
 ╠${prefix}pediaemoji
 ╠${prefix}microsoftemoji
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7557,7 +7512,6 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
             case 'imageeffectmenu':{
-var unicorn = await getBuffer(picak+'Image Effect Menu')
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7565,10 +7519,10 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═════✪ IMG EFFECT 	
+    image: global.menuimg,
+    caption: `╔═════💖 IMG EFFECT 	
 ╠${prefix}removebg [reply img]
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7577,7 +7531,6 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
 case 'animemenu':{
-var unicorn = await getBuffer(picak+'Anime Menu')
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7585,8 +7538,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ ANIME 	
+    image: global.menuimg,
+    caption: `╔═══════💖 ANIME 	
 ╠${prefix}animeneko
 ╠${prefix}waifu
 ╠${prefix}shinobu
@@ -7638,7 +7591,7 @@ const buttonMessage = {
 ╠${prefix}couplepp
 ╠${prefix}animewall [query]
 ╠${prefix}animewall2 [query]
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7647,7 +7600,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
             case 'stickermenu':{
-var unicorn = await getBuffer(picak+'Sticker Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7655,8 +7608,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ STICKER 	
+    image: global.menuimg,
+    caption: `╔═══════💖 STICKER 	
 ╠ ${prefix}patrick
 ╠ ${prefix}emoji
 ╠ ${prefix}emojimix
@@ -7668,7 +7621,7 @@ const buttonMessage = {
 ╠ ${prefix}nicholas
 ╠ ${prefix}cartoon
 ╠ ${prefix}stickman
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7677,7 +7630,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
 case 'animestickermenu':{
-var unicorn = await getBuffer(picak+'Anime Sticker Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7685,8 +7638,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ ANIME STICKER 	
+    image: global.menuimg,
+    caption: `╔═══════💖 ANIME STICKER 	
 ╠${prefix}loli
 ╠${prefix}bully
 ╠${prefix}cuddle
@@ -7716,7 +7669,7 @@ const buttonMessage = {
 ╠${prefix}cringe
 ╠${prefix}neko
 ╠${prefix}gura
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7725,7 +7678,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break 
 case 'nsfwmenu':{
-var unicorn = await getBuffer(picak+'Nsfw Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7733,8 +7686,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ NSFW 	
+    image: global.menuimg,
+    caption: `╔═══════💖 NSFW 	
 ╠${prefix}gifhentai
 ╠${prefix}gifblowjob
 ╠${prefix}hentaivideo
@@ -7770,7 +7723,7 @@ const buttonMessage = {
 ╠${prefix}thights
 ╠${prefix}yuri
 ╠${prefix}zettai
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7779,7 +7732,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
 case 'funmenu':{
-var unicorn = await getBuffer(picak+'Fun Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7787,8 +7740,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ Fun 
+    image: global.menuimg,
+    caption: `╔═══════💖 Fun 
 ╠ ${prefix}say [text]	
 ╠ ${prefix}define [text]
 ╠ ${prefix}how [text]
@@ -7864,7 +7817,7 @@ const buttonMessage = {
 ╠ ${prefix}fuckgirl
 ╠ ${prefix}playgirl
 ╠ ${prefix}quotes
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7873,7 +7826,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
 case 'gamemenu':{
-var unicorn = await getBuffer(picak+'Game Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7881,8 +7834,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ GAME 	
+    image: global.menuimg,
+    caption: `╔═══════💖 GAME 	
 ╠ ${prefix}truth
 ╠ ${prefix}dare
 ╠ ${prefix}tictactoe
@@ -7890,7 +7843,7 @@ const buttonMessage = {
 ╠ ${prefix}guess [option]
 ╠ ${prefix}math [mode]
 ╠ ${prefix}suitpvp [tag]
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7899,7 +7852,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
             case 'anonymousmenu':{
-var unicorn = await getBuffer(picak+'Anonymous Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7907,13 +7860,13 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══✪ ANONYMOUS 	
+    image: global.menuimg,
+    caption: `╔═══💖 ANONYMOUS 	
 ╠${prefix}anonymous
 ╠${prefix}start
 ╠${prefix}next
 ╠${prefix}leave
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7922,7 +7875,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
 case 'databasemenu':{
-var unicorn = await getBuffer(picak+'Database Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7930,8 +7883,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══✪ DATABASE 	
+    image: global.menuimg,
+    caption: `╔═══💖 DATABASE 	
 ╠ ${prefix}setcmd
 ╠ ${prefix}listcmd
 ╠ ${prefix}delcmd
@@ -7940,7 +7893,7 @@ const buttonMessage = {
 ╠ ${prefix}listmsg
 ╠ ${prefix}getmsg
 ╠ ${prefix}delmsg
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7949,7 +7902,7 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, buttonMessage)
 }
 break
 case 'othermenu':{
-var unicorn = await getBuffer(picak+'Other Menu')
+
 
 const buttons = [
   {buttonId: 'script', buttonText: {displayText: 'Script 🔖'}, type: 1},
@@ -7957,8 +7910,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: unicorn,
-    caption: `╔═══════✪ OTHER 	
+    image: global.menuimg,
+    caption: `╔═══════💖 OTHER 	
 ╠ ${prefix}afk
 ╠ ${prefix}id
 ╠ ${prefix}toqr [link]
@@ -7979,7 +7932,7 @@ const buttonMessage = {
 ╠ ${prefix}donate
 ╠ ${prefix}request
 ╠ ${prefix}report [bug]
-╚═════════════✪`,
+╚═════════════💖`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
