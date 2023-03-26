@@ -922,7 +922,6 @@ During ${clockString(new Date - user.afkTime)}
 	//menu doc randomizer
 let documents = [doc1,doc2,doc3,doc4,doc5,doc6]
 let docs = pickRandom(documents)
-
         switch(command) {
         
 	case 'afk': {
@@ -6532,7 +6531,23 @@ const sendMsg = await MoxieBotInc.sendMessage(m.chat, listMessage)
 }
 break
 case 'Hi': case 'hi': case 'Helo':case 'Hello': case'Hey':{
-    MoxieBotInc.sendMessage(m.chat, { audio: { url:'https://raw.githubusercontent.com/nipuna15/sever/main/audio/Hi.mp3'}, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
+    result = fs.readFileSync(`./audio/Hi.mp3`)
+    MoxieBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
+}
+break
+case 'morning': case 'Gm': case 'gm':case 'Good morning': case'Welocome':{
+    result = fs.readFileSync(`./audio/Gm.mp3`)
+    MoxieBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
+}
+break
+case 'Hi': case 'hi': case 'Helo':case 'Hello': case'Hey':{
+    result = fs.readFileSync(`./audio/Hi.mp3`)
+    MoxieBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
+}
+break
+case 'vasi': case 'Huththi': case 'vesavi':case 'poni': case'Vassi':{
+    result = fs.readFileSync(`./audio/Balli.mp3`)
+    MoxieBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
 }
 break
             case 'allmenu':{
@@ -6545,7 +6560,7 @@ const buttons = [
 ]
 const buttonMessage = {
     image: unicorn,
-    caption: `╔═══════* OWNER 	
+    caption: `╔═══════✪ OWNER 	
 ╠ ${prefix}self
 ╠ ${prefix}public
 ╠ ${prefix}join [link]
