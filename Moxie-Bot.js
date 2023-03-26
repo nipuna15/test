@@ -62,6 +62,7 @@ let kuismath = db.data.game.math = []
 let vote = db.data.others.vote = []
 
 //read database jid
+let menuimg = fs.readFileSync(`./Moxie_Plaguing/n.jpg`)
 let premium = JSON.parse(fs.readFileSync('./database/user/premium.json'));
 let banned = JSON.parse(fs.readFileSync('./database/user/banned.json'));
 let autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'));
@@ -5801,48 +5802,12 @@ let animetxt = `
 ❄ *Description:* ${anime.synopsis}*`
                 await MoxieBotInc.sendMessage(m.chat,{image:{url:anime.picture}, caption:animetxt},{quoted:m})
                 break
-case 'patrick':
-case 'patricksticker': {
-var ano = await fetchJson('https://raw.githubusercontent.com/DGMoxie/Moxie_Plaguing/Moxie_Media/main/patrick')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await MoxieBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
 case 'ttp': {
            if (!text) return m.reply(`*Example : ${prefix + command} hello*`)
            await MoxieBotInc.sendMedia(m.chat, `https://cililitan.herokuapp.com/api/texttopng2?teks=${text}`, 'A L Y A', 'B O T M D', m, {asSticker: true})
          
                      }
                      break
-case 'dogesticker':
-case 'dogestick':
-	case 'doge':{
-var ano = await fetchJson('https://raw.githubusercontent.com/DGMoxie/Moxie_Plaguing/Moxie_Media/main/doge')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await MoxieBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'lovesticker':
-case 'lovestick' :{
-var ano = await fetchJson('https://raw.githubusercontent.com/DGMoxie/Moxie_Plaguing/Moxie_Media/main/love')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await MoxieBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
-break
-case 'gura':
-case 'gurastick':{
-var ano = await fetchJson('https://raw.githubusercontent.com/DGMoxie/Moxie_Plaguing/Moxie_Media/main/gura')
-var wifegerak = ano.split('\n')
-var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
-encmedia = await MoxieBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
-await fs.unlinkSync(encmedia)
-}
 break
             case 'can': {
             	if (!text) throw `Ask question\n\nExample : ${prefix + command} i dance?`
@@ -6519,7 +6484,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    
+    image: menuimg,
     caption: `╔═══════💖 OWNER 	
 ╠ ${prefix}self
 ╠ ${prefix}public
@@ -7087,7 +7053,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner ??'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 OWNER 	
 ╠ ${prefix}self
 ╠ ${prefix}public
@@ -7118,7 +7084,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 GROUP 	
 ╠${prefix}grouplink
 ╠${prefix}ephemeral [option]
@@ -7175,7 +7141,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 MAKER 	
 ╠${prefix}candy
 ╠${prefix}8bit
@@ -7299,7 +7265,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 DOWNLOAD 	
 ╠${prefix}tiktok [url]
 ╠${prefix}tiktokaudio [url]
@@ -7326,7 +7292,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 SEARCH 	
 ╠${prefix}play [query]
 ╠${prefix}song [query]
@@ -7363,7 +7329,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 CONVERT 	
 ╠ ${prefix}toimage [reply stick]
 ╠ ${prefix}sticker [reply img|gif]
@@ -7407,7 +7373,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 RANDOM IMG 	
 ╠${prefix}coffee
 ╠${prefix}woof
@@ -7462,7 +7428,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 RANDOM VIDEO
 ╠${prefix}tiktokgirl	
 ╠${prefix}tiktoknukhty
@@ -7489,7 +7455,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 EMOTE 	
 ╠${prefix}instagramemoji
 ╠${prefix}facebookemoji
@@ -7519,7 +7485,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═════💖 IMG EFFECT 	
 ╠${prefix}removebg [reply img]
 ╚═════════════💖`,
@@ -7538,7 +7504,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 ANIME 	
 ╠${prefix}animeneko
 ╠${prefix}waifu
@@ -7608,7 +7574,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 STICKER 	
 ╠ ${prefix}patrick
 ╠ ${prefix}emoji
@@ -7638,7 +7604,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 ANIME STICKER 	
 ╠${prefix}loli
 ╠${prefix}bully
@@ -7686,7 +7652,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 NSFW 	
 ╠${prefix}gifhentai
 ╠${prefix}gifblowjob
@@ -7740,7 +7706,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 Fun 
 ╠ ${prefix}say [text]	
 ╠ ${prefix}define [text]
@@ -7834,7 +7800,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 GAME 	
 ╠ ${prefix}truth
 ╠ ${prefix}dare
@@ -7860,7 +7826,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══💖 ANONYMOUS 	
 ╠${prefix}anonymous
 ╠${prefix}start
@@ -7883,7 +7849,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══💖 DATABASE 	
 ╠ ${prefix}setcmd
 ╠ ${prefix}listcmd
@@ -7910,7 +7876,7 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: global.menuimg,
+    image: menuimg,
     caption: `╔═══════💖 OTHER 	
 ╠ ${prefix}afk
 ╠ ${prefix}id
