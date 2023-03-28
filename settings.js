@@ -28,7 +28,7 @@ global.botname = 'Moxie-MD_BOT' //ur bot name
 global.linkz = "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS" //your theme url which will be displayed on whatsapp
 global.websitex = "https://youtu.be/WiIqCdiDjFo" //ur website to be displayed
 global.botscript = 'https://github.com\nipuna15/Moxie-MD-Bot' //script link
-global.themeemoji = "🦄" //ur theme emoji
+global.themeemoji = "🔱" //ur theme emoji
 global.packname = "Sticker By" //ur sticker watermark packname
 global.author = "Moxie Bot" //ur sticker watermark author
 global.wm = "Moxie Bot Inc." //ur watermark
@@ -40,8 +40,8 @@ global.songdownlod = "📥 Downloading Your Song..."
 global.songuplod = "📤 Uploading Your Song..."
 
 //Image url
-global.aliveimg = "https://github.com\nipuna15\nipuna15/raw/main/Moxiepic.jpg"
-global.menuimg = "https://github.com\nipuna15\nipuna15/raw/main/Moxiepic.jpg"
+global.aliveimg = "https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg" // Alive Image Url
+global.menuimg = "https://github.com/nipuna15/nipuna15/raw/main/Moxiepic.jpg" // Menu Image Url
 
 
 //alive,menu messages

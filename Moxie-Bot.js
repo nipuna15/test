@@ -62,7 +62,6 @@ let kuismath = db.data.game.math = []
 let vote = db.data.others.vote = []
 
 //read database jid
-let menuimg = fs.readFileSync(`./Moxie_Plaguing/n.jpg`)
 let premium = JSON.parse(fs.readFileSync('./database/user/premium.json'));
 let banned = JSON.parse(fs.readFileSync('./database/user/banned.json'));
 let autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'));
@@ -1099,7 +1098,7 @@ break
             let orang = member[Math.floor(Math.random() * member.length)]
             let jodoh = member[Math.floor(Math.random() * member.length)]
             let jawab = `@${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}
-Cieeee, What's Going On❤️💖👀`
+Cieeee, What's Going On❤️�👀`
             let menst = [orang, jodoh]
             let buttons = [
                         { buttonId: '❤️', buttonText: { displayText: '❤️' }, type: 1 }
@@ -1989,10 +1988,10 @@ break
 case 'ytdoc':
 const Moxieaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !Moxieaudp3.isYTUrl(text)) throw `Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`
-const docdown = await MoxieBotInc.sendMessage(from , { text: '📥 Downloading Your Song...' }, { quoted: m } )
+const docdown = await MoxieBotInc.sendMessage(from , { text: global.songdownlod }, { quoted: m } )
 const audio=await Moxieaudp3.mp3(text)
 await MoxieBotInc.sendMessage(from, { delete: docdown.key })
-const docup = await MoxieBotInc.sendMessage(from , { text: '📤 Uploading Your Song...' }, { quoted: m } )
+const docup = await MoxieBotInc.sendMessage(from , { text: global.songuplod }, { quoted: m } )
 await MoxieBotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(audio.path),
     mimetype: 'audio/mpeg', ptt: true,
@@ -6485,8 +6484,8 @@ const buttons = [
 ]
 const buttonMessage = {
     
-    image: menuimg,
-    caption: `╔═══════💖 OWNER 	
+    image: global.menuimg,
+    caption: `╔═══════� OWNER 	
 ╠ ${prefix}self
 ╠ ${prefix}public
 ╠ ${prefix}join [link]
@@ -6502,7 +6501,7 @@ const buttonMessage = {
 ╠ ${prefix}creategroup [name]
 ╠ ${prefix}block [tag/number]
 ╠ ${prefix}unblock [tag/number]
-╠═══════💖 GROUP 	        
+╠═══════� GROUP 	        
 ╠${prefix}grouplink
 ╠${prefix}ephemeral [option]
 ╠${prefix}setgcpp [image]
@@ -6537,7 +6536,7 @@ const buttonMessage = {
 ╠${prefix}upvote
 ╠${prefix}checkvote
 ╠${prefix}delvote
-╠═══════💖 MAKER 
+╠═══════� MAKER 
 ╠${prefix}candy
 ╠${prefix}blackpinkneon
 ╠${prefix}deepsea
@@ -6639,7 +6638,7 @@ const buttonMessage = {
 ╠ ${prefix}halloween
 ╠ ${prefix}watercolor
 ╠ ${prefix}classic
-╠═════💖 DOWNLOAD 	
+╠═════� DOWNLOAD 	
 ╠${prefix}tiktok [url]
 ╠${prefix}tiktokaudio [url]
 ╠${prefix}instagram [url]
@@ -6648,7 +6647,7 @@ const buttonMessage = {
 ╠${prefix}ytmp3 [url|quality]
 ╠${prefix}ytmp4 [url|quality]
 ╠${prefix}gitclone [repo link]
-╠═══════💖 SEARCH 	
+╠═══════� SEARCH 	
 ╠${prefix}play [query]
 ╠${prefix}song [query]
 ╠${prefix}yts [query]
@@ -6667,7 +6666,7 @@ const buttonMessage = {
 ╠${prefix}wikimedia [query]
 ╠${prefix}ytsearch [query]
 ╠${prefix}ringtone [query]
-╠═══════💖 CONVERT 
+╠═══════� CONVERT 
 ╠ ${prefix}toimage [reply stick]
 ╠ ${prefix}sticker [reply img|gif]
 ╠ ${prefix}take [reply img|gif|stik]
@@ -6695,9 +6694,9 @@ const buttonMessage = {
 ╠${prefix}slow [reply aud]
 ╠${prefix}smooth [reply aud]
 ╠${prefix}squirrel [reply aud]
-╠═══════💖 IMG EFFECT 
+╠═══════� IMG EFFECT 
 ╠${prefix}removebg [reply img]
-╠═══════💖 RANDOM IMG 
+╠═══════� RANDOM IMG 
 ╠${prefix}coffee
 ╠${prefix}woof
 ╠${prefix}meow
@@ -6735,7 +6734,7 @@ const buttonMessage = {
 ╠${prefix}couplepicture
 ╠${prefix}wallphone
 ╠${prefix}wallml
-╠═══════💖 RANDOM VIDEO
+╠═══════� RANDOM VIDEO
 ╠${prefix}tiktokgirl	
 ╠${prefix}tiktoknukhty
 ╠${prefix}tiktokpanrika
@@ -6744,7 +6743,7 @@ const buttonMessage = {
 ╠${prefix}tiktokghea
 ╠${prefix}tiktoksantuy
 ╠${prefix}tiktokbocil
-╠═══════💖 EMOTE 
+╠═══════� EMOTE 
 ╠${prefix}instagramemoji
 ╠${prefix}facebookemoji
 ╠${prefix}iphoneemoji
@@ -6757,7 +6756,7 @@ const buttonMessage = {
 ╠${prefix}googleemoji
 ╠${prefix}pediaemoji
 ╠${prefix}microsoftemoji
-╠═══════💖 ANIME 
+╠═══════� ANIME 
 ╠${prefix}animeneko
 ╠${prefix}waifu
 ╠${prefix}animewaifu
@@ -6809,7 +6808,7 @@ const buttonMessage = {
 ╠${prefix}couplepp
 ╠${prefix}animewall [query]
 ╠${prefix}animewall2 [query]
-╠══════💖 STICKER 
+╠══════� STICKER 
 ╠ ${prefix}patrick
 ╠ ${prefix}emoji
 ╠ ${prefix}emojimix
@@ -6821,7 +6820,7 @@ const buttonMessage = {
 ╠ ${prefix}nicholas
 ╠ ${prefix}cartoon
 ╠ ${prefix}stickman
-╠════💖 ANIME STICKER 
+╠════� ANIME STICKER 
 ╠${prefix}loli
 ╠${prefix}bully
 ╠${prefix}cuddle
@@ -6851,7 +6850,7 @@ const buttonMessage = {
 ╠${prefix}cringe
 ╠${prefix}neko
 ╠${prefix}gura
-╠═══════💖 NSFW 
+╠═══════� NSFW 
 ╠${prefix}gifhentai
 ╠${prefix}gifblowjob
 ╠${prefix}hentaivideo
@@ -6887,7 +6886,7 @@ const buttonMessage = {
 ╠${prefix}thights
 ╠${prefix}yuri
 ╠${prefix}zettai
-╠═══════💖 FUN 
+╠═══════� FUN 
 ╠ ${prefix}say [text]
 ╠ ${prefix}define [text]
 ╠ ${prefix}how [text
@@ -6963,7 +6962,7 @@ const buttonMessage = {
 ╠ ${prefix}fuckgirl
 ╠ ${prefix}playgirl
 ╠ ${prefix}quotes
-╠══════💖 GAME 
+╠══════� GAME 
 ╠ ${prefix}truth
 ╠ ${prefix}dare
 ╠ ${prefix}tictactoe
@@ -6971,12 +6970,12 @@ const buttonMessage = {
 ╠ ${prefix}guess [option]
 ╠ ${prefix}math [mode]
 ╠ ${prefix}suitpvp [tag]
-╠══💖 ANONYMOUS CHAT 
+╠══� ANONYMOUS CHAT 
 ╠${prefix}anonymous
 ╠${prefix}start
 ╠${prefix}next
 ╠${prefix}leave
-╠══════💖 DATABASE 
+╠══════� DATABASE 
 ╠ ${prefix}setcmd
 ╠ ${prefix}listcmd
 ╠ ${prefix}delcmd
@@ -6985,7 +6984,7 @@ const buttonMessage = {
 ╠ ${prefix}listmsg
 ╠ ${prefix}getmsg
 ╠ ${prefix}delmsg
-╠══════💖 OTHER 
+╠══════� OTHER 
 ╠ ${prefix}afk
 ╠ ${prefix}id
 ╠ ${prefix}toqr [link]
@@ -7006,7 +7005,7 @@ const buttonMessage = {
 ╠ ${prefix}donate
 ╠ ${prefix}request
 ╠ ${prefix}report [bug]
-╠═══════💖「 BUG MENU 」	
+╠═══════�「 BUG MENU 」	
 ╠════☾pc attack☽
 ╠${prefix}pcbut [number]
 ╠${prefix}pcvn [number]
@@ -7037,7 +7036,7 @@ const buttonMessage = {
 ╠${prefix}docfuck [amount]
 ╠${prefix}docsoft [amount]
 ╠${prefix}docsoft2 [amount]
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7053,8 +7052,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner ??'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 OWNER 	
+    image: global.menuimg,
+    caption: `╔═══════� OWNER 	
 ╠ ${prefix}self
 ╠ ${prefix}public
 ╠ ${prefix}join [link]
@@ -7068,7 +7067,7 @@ const buttonMessage = {
 ╠ ${prefix}setppbot [image]
 ╠ ${prefix}setthumb [reply img]
 ╠ ${prefix}setexif
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7084,8 +7083,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 GROUP 	
+    image: global.menuimg,
+    caption: `╔═══════� GROUP 	
 ╠${prefix}grouplink
 ╠${prefix}ephemeral [option]
 ╠${prefix}setgcpp [image]
@@ -7125,7 +7124,7 @@ const buttonMessage = {
 ╠${prefix}upvote
 ╠${prefix}checkvote
 ╠${prefix}delvote
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7141,8 +7140,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 MAKER 	
+    image: global.menuimg,
+    caption: `╔═══════� MAKER 	
 ╠${prefix}candy
 ╠${prefix}8bit
 ╠${prefix}horror
@@ -7248,7 +7247,7 @@ const buttonMessage = {
 ╠ ${prefix}halloween
 ╠ ${prefix}watercolor
 ╠ ${prefix}classic
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7265,8 +7264,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 DOWNLOAD 	
+    image: global.menuimg,
+    caption: `╔═══════� DOWNLOAD 	
 ╠${prefix}tiktok [url]
 ╠${prefix}tiktokaudio [url]
 ╠${prefix}instagram [url]
@@ -7275,7 +7274,7 @@ const buttonMessage = {
 ╠${prefix}ytmp3 [url|quality]
 ╠${prefix}ytmp4 [url|quality]
 ╠${prefix}gitclone [repo link]
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7292,8 +7291,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 SEARCH 	
+    image: global.menuimg,
+    caption: `╔═══════� SEARCH 	
 ╠${prefix}play [query]
 ╠${prefix}song [query]
 ╠${prefix}yts [query]
@@ -7312,7 +7311,7 @@ const buttonMessage = {
 ╠${prefix}wikimedia [query]
 ╠${prefix}ytsearch [query]
 ╠${prefix}ringtone [query]
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7329,8 +7328,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 CONVERT 	
+    image: global.menuimg,
+    caption: `╔═══════� CONVERT 	
 ╠ ${prefix}toimage [reply stick]
 ╠ ${prefix}sticker [reply img|gif]
 ╠ ${prefix}take [reply img|gif|stik]
@@ -7358,7 +7357,7 @@ const buttonMessage = {
 ╠${prefix}slow [reply aud]
 ╠${prefix}smooth [reply aud]
 ╠${prefix}squirrel [reply aud]
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7373,8 +7372,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 RANDOM IMG 	
+    image: global.menuimg,
+    caption: `╔═══════� RANDOM IMG 	
 ╠${prefix}coffee
 ╠${prefix}woof
 ╠${prefix}meow
@@ -7412,7 +7411,7 @@ const buttonMessage = {
 ╠${prefix}couplepicture
 ╠${prefix}wallphone
 ╠${prefix}wallml
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7428,8 +7427,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 RANDOM VIDEO
+    image: global.menuimg,
+    caption: `╔═══════� RANDOM VIDEO
 ╠${prefix}tiktokgirl	
 ╠${prefix}tiktoknukhty
 ╠${prefix}tiktokpanrika
@@ -7438,7 +7437,7 @@ const buttonMessage = {
 ╠${prefix}tiktokghea
 ╠${prefix}tiktoksantuy
 ╠${prefix}tiktokbocil
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7455,8 +7454,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 EMOTE 	
+    image: global.menuimg,
+    caption: `╔═══════� EMOTE 	
 ╠${prefix}instagramemoji
 ╠${prefix}facebookemoji
 ╠${prefix}iphoneemoji
@@ -7469,7 +7468,7 @@ const buttonMessage = {
 ╠${prefix}googleemoji
 ╠${prefix}pediaemoji
 ╠${prefix}microsoftemoji
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7485,10 +7484,10 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═════💖 IMG EFFECT 	
+    image: global.menuimg,
+    caption: `╔═════� IMG EFFECT 	
 ╠${prefix}removebg [reply img]
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7504,8 +7503,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 ANIME 	
+    image: global.menuimg,
+    caption: `╔═══════� ANIME 	
 ╠${prefix}animeneko
 ╠${prefix}waifu
 ╠${prefix}shinobu
@@ -7557,7 +7556,7 @@ const buttonMessage = {
 ╠${prefix}couplepp
 ╠${prefix}animewall [query]
 ╠${prefix}animewall2 [query]
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7574,8 +7573,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 STICKER 	
+    image: global.menuimg,
+    caption: `╔═══════� STICKER 	
 ╠ ${prefix}patrick
 ╠ ${prefix}emoji
 ╠ ${prefix}emojimix
@@ -7587,7 +7586,7 @@ const buttonMessage = {
 ╠ ${prefix}nicholas
 ╠ ${prefix}cartoon
 ╠ ${prefix}stickman
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7604,8 +7603,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 ANIME STICKER 	
+    image: global.menuimg,
+    caption: `╔═══════� ANIME STICKER 	
 ╠${prefix}loli
 ╠${prefix}bully
 ╠${prefix}cuddle
@@ -7635,7 +7634,7 @@ const buttonMessage = {
 ╠${prefix}cringe
 ╠${prefix}neko
 ╠${prefix}gura
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7652,8 +7651,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 NSFW 	
+    image: global.menuimg,
+    caption: `╔═══════� NSFW 	
 ╠${prefix}gifhentai
 ╠${prefix}gifblowjob
 ╠${prefix}hentaivideo
@@ -7689,7 +7688,7 @@ const buttonMessage = {
 ╠${prefix}thights
 ╠${prefix}yuri
 ╠${prefix}zettai
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7706,8 +7705,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 Fun 
+    image: global.menuimg,
+    caption: `╔═══════� Fun 
 ╠ ${prefix}say [text]	
 ╠ ${prefix}define [text]
 ╠ ${prefix}how [text]
@@ -7783,7 +7782,7 @@ const buttonMessage = {
 ╠ ${prefix}fuckgirl
 ╠ ${prefix}playgirl
 ╠ ${prefix}quotes
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7800,8 +7799,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 GAME 	
+    image: global.menuimg,
+    caption: `╔═══════� GAME 	
 ╠ ${prefix}truth
 ╠ ${prefix}dare
 ╠ ${prefix}tictactoe
@@ -7809,7 +7808,7 @@ const buttonMessage = {
 ╠ ${prefix}guess [option]
 ╠ ${prefix}math [mode]
 ╠ ${prefix}suitpvp [tag]
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7826,13 +7825,13 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══💖 ANONYMOUS 	
+    image: global.menuimg,
+    caption: `╔═══� ANONYMOUS 	
 ╠${prefix}anonymous
 ╠${prefix}start
 ╠${prefix}next
 ╠${prefix}leave
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7849,8 +7848,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══💖 DATABASE 	
+    image: global.menuimg,
+    caption: `╔═══� DATABASE 	
 ╠ ${prefix}setcmd
 ╠ ${prefix}listcmd
 ╠ ${prefix}delcmd
@@ -7859,7 +7858,7 @@ const buttonMessage = {
 ╠ ${prefix}listmsg
 ╠ ${prefix}getmsg
 ╠ ${prefix}delmsg
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
@@ -7876,8 +7875,8 @@ const buttons = [
   {buttonId: 'owner', buttonText: {displayText: 'Owner👤'}, type: 1}
 ]
 const buttonMessage = {
-    image: menuimg,
-    caption: `╔═══════💖 OTHER 	
+    image: global.menuimg,
+    caption: `╔═══════� OTHER 	
 ╠ ${prefix}afk
 ╠ ${prefix}id
 ╠ ${prefix}toqr [link]
@@ -7898,7 +7897,7 @@ const buttonMessage = {
 ╠ ${prefix}donate
 ╠ ${prefix}request
 ╠ ${prefix}report [bug]
-╚═════════════💖`,
+╚═════════════�`,
     footer: `${botname}`,
     buttons: buttons,
     headerType: 4
